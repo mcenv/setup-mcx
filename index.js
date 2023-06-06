@@ -20636,7 +20636,7 @@ async function run() {
     );
     snapshot.addManifest(target);
 
-    (0,dist.submitSnapshot)(snapshot);
+    (0,dist.submitSnapshot)(snapshot, github.context);
   } catch (error) {
     core.setFailed(`${error}`);
   }
