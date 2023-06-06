@@ -20628,7 +20628,7 @@ async function run() {
 
     const snapshot = new dist.Snapshot(
       {
-        name: "setup-mcx",
+        name: "mcenv/setup-mcx",
         url: "https://github.com/mcenv/setup-mcx",
         version: "0.1.0",
       },
