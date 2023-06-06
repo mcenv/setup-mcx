@@ -1,6 +1,11 @@
 name: "Setup mcx"
 author: "mcenv"
 description: "Set up mcx"
+inputs:
+  token:
+    description: "GitHub Personal Access Token"
+    required: false
+    default: ${{ github.token }}
 runs:
   using: "node16"
   main: "index.js"
