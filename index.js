@@ -20633,6 +20633,10 @@ async function run() {
         version: "0.1.0",
       },
       github.context,
+      {
+        correlator: `${github.context.job}-${pack.name}`,
+        id: github.context.runId.toString(),
+      }
     );
     snapshot.addManifest(target);
 
