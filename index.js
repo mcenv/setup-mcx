@@ -3,6 +3,7 @@
 "use strict";
 
 import * as core from "@actions/core";
+import * as github from "@actions/github";
 import { BuildTarget, PackageCache, Snapshot, submitSnapshot } from "@github/dependency-submission-toolkit";
 import { PackageURL } from "packageurl-js";
 import { readFile } from "fs/promises";
@@ -26,12 +27,16 @@ async function run() {
       target.addBuildDependency(cache.package(purl));
     }
 
-    const snapshot = new Snapshot({
-      name: "setup-mcx",
-      url: "https://github.com/mcenv/setup-mcx",
-      version: "0.1.0",
-    });
+    const snapshot = new Snapshot(
+      {
+        name: "setup-mcx",
+        url: "https://github.com/mcenv/setup-mcx",
+        version: "0.1.0",
+      },
+      github.context,
+    );
     snapshot.addManifest(target);
+
     submitSnapshot(snapshot);
   } catch (error) {
     core.setFailed(`${error}`);
