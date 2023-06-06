@@ -1,0 +1,9 @@
+name: "Setup mcx"
+author: "mcenv"
+description: "Set up mcx"
+runs:
+  using: "node16"
+  main: "index.js"
+branding:
+  icon: "box"
+  color: "white"
