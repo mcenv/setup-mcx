@@ -20621,7 +20621,7 @@ async function run() {
         throw new Error(`invalid dependency triple: ${pack.dependencies[key]}`);
       }
       const [_, owner, repository, tag] = triple;
-      const purl = new packageurl_js.PackageURL("github", `github.com/${owner}`, repository, tag, null, null);
+      const purl = new packageurl_js.PackageURL("github", owner, repository, tag, null, null);
       // TODO: indirect dependencies
       target.addBuildDependency(cache.package(purl));
     }
