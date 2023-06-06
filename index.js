@@ -14,7 +14,7 @@ async function run() {
 
     const pack = JSON.parse(await readFile("pack.json", "utf8"));
     const cache = new PackageCache();
-    const target = new BuildTarget(pack.name);
+    const target = new BuildTarget(pack.name, "pack.json");
 
     for (const key in pack.dependencies) {
       const triple = /^([^\/]+)\/([^@]+)@(.+)$/.exec(pack.dependencies[key]);
