@@ -37,7 +37,7 @@ async function run() {
     );
     snapshot.addManifest(target);
 
-    submitSnapshot(snapshot);
+    submitSnapshot(snapshot, github.context);
   } catch (error) {
     core.setFailed(`${error}`);
   }
