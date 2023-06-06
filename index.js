@@ -20613,7 +20613,7 @@ async function run() {
 
     const pack = JSON.parse(await (0,promises_namespaceObject.readFile)("pack.json", "utf8"));
     const cache = new dist.PackageCache();
-    const target = new dist.BuildTarget(pack.name);
+    const target = new dist.BuildTarget(pack.name, "pack.json");
 
     for (const key in pack.dependencies) {
       const triple = /^([^\/]+)\/([^@]+)@(.+)$/.exec(pack.dependencies[key]);
